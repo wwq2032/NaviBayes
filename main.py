@@ -1,7 +1,6 @@
 import numpy as np
 import logging
 # import colorlog
-
 import NaviBayes as nb
 
 trainTestRate = 0.7  # 测试比例

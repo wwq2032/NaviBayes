@@ -27,14 +27,20 @@ def calProbability(noLabelMat, meansVec, stdVec):
     stdMat2 = stdMat ** 2
     k = 1 / (np.sqrt(2 * np.pi) * stdMat)
 
-    # 各个特征的条件概率矩阵
+    # 各个特征的条件概率矩阵,或log优化去掉e的幂函数
     probabilityEveryFeature = k * np.exp(-deltaX2 / stdMat2)
 
     # print(probabilityEveryFeature)  # 每个特征的概率矩阵 15*4
 
     m = np.ones((4, 1))
+
     # 总条件概率矩阵（特征条件概率矩阵累加）
-    result = np.dot(probabilityEveryFeature, m)
-    # print(result)
+    result = np.dot(probabilityEveryFeature, m)   #应该是连乘不是累加，不过都是比大小，影响不大
+
+    #严格按照原始公式，会产生下溢出问题，算法失效
+    #result = np.prod(probabilityEveryFeature, axis=1)
+    #rresult = result.reshape(1,result.shape[0])
+
+
 
     return result
