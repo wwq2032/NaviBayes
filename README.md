@@ -1,4 +1,8 @@
 # NaviBayes
+
+Python=3.5
+Numpy=1.19.1
+
 鸢尾花数据集
 
 150条样本
