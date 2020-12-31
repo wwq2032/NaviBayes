@@ -123,7 +123,8 @@ if __name__ == '__main__':
 
     logger.info("开始计算不同类别的概率")
 
-    resultProbab = np.zeros((45, 3))
+    rows=round(150*(1-trainTestRate))
+    resultProbab = np.zeros((rows, 3))
     for i in range(3):
         meansVec = meansMat[i, :]
         stdVec = stdMat[i, :]
