@@ -137,3 +137,4 @@ if __name__ == '__main__':
 
     logger.info("测试结果：共%d个测试样本，正确：%d个，错误：%d个，精度：%.3f%%", TestLabels1.shape[0], TestLabels1.shape[0] - len(mistakeArr),
                 len(mistakeArr), 100 * accuracy)
+    logger.info("预测错误的编号为 %s", mistakeArr)
